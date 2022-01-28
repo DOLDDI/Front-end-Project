@@ -1,0 +1,104 @@
+/* 반복되는 색상을 지정해줄때 사용 */
+:root {
+  --text-color: black;
+  --backgrond-color: beige;
+  --accent-color: orange;
+}
+
+body {
+  margin: 0;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+/* var를 사용해서 지정했던 색깔을 넣어줄수 있음 
+ex) var(--text-color)*/
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+.nav_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--backgrond-color);
+  padding: 8px 12px;
+}
+
+.nav_logo {
+  font-size: 25px;
+  color: var(--accent-color);
+}
+
+.nav_logo i {
+  color: var(--accent-color);
+}
+
+.nav_items {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav_items li:hover {
+  background-color: tan;
+  border-radius: 4px;
+}
+
+.nav_items li {
+  padding: 8px 12px;
+}
+
+.nav_icons {
+  list-style: none;
+  color: var(--text-color);
+  display: flex;
+  padding-left: 0;
+}
+
+.nav_icons li {
+  padding: 8px 12px;
+}
+
+.nav_button {
+  display: none;
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+/* 반응형 웹사이트를 위한 코드 */
+@media screen and (max-width: 768px) {
+  .nav_box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+  }
+
+  .nav_items {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav_items li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav_icons {
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav_button {
+    display: block;
+  }
+
+  .nav_items.active,
+  .nav_icons.active {
+    display: flex;
+  }
+}
